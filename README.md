@@ -1,5 +1,5 @@
 
-Portfolio Optimization with Sortino Index. v.0.1
+Portfolio Optimization with Sortino Index - v.0.1
 ================================================
 
 Contents
