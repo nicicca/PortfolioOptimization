@@ -1,5 +1,5 @@
 
-Portfolio Optimization with Sortino Index - v.0.1
+Portfolio Optimization with Sortino Index. v.0.2
 ================================================
 
 Contents
@@ -39,7 +39,7 @@ Import packages suit your project together with the PortofolioOptimization class
 
 ```python
 # Import packages 
-from Maximization import PortfolioOptimization
+from Sortino_Index import PortfolioOptimization
 ```
 ## Import the list of financial products
 
@@ -49,7 +49,7 @@ For example, trending tickers:  https://finance.yahoo.com/lookup
 
 ```python
 # Select a list of Green ETFs as specified on https://finance.yahoo.com
-ETF_list = ['TAN', 'QCLN', 'CNRG', 'SMOG', 'ICLN', 'ACES', 'PBD', 'PBW', 'FAN', 'NZAC']
+ETF_list = ['^GSPC', '^FTSE', '^NDX', 'SP500-45', 'NZAC']
 ```
 ## Run the Portfolio Analysis
 
@@ -67,10 +67,15 @@ OptimizedPortfolio = PortfolioOptimization(ETF_list, ['2022-05-01', '2022-05-31'
 ## Input the initial capital
 
 
-When running the class with the 'rebalance' set to False, the workflow of the classwill return the following message:
+When running the class with the 'rebalance' set to False, the workflow of the classwill require to specify a 'capital' input.
 
 
-*'To maximize the excessive returns with the current set of financial products, specify the initial capital: '*
+
+
+```
+# Include the capital.
+OptimizedPortfolio = PortfolioOptimization(..., capital=5000)
+```
 
 
 
@@ -101,7 +106,7 @@ Activate the rebalance mode by setting:
 ```
 # Include the ETF_list and the timespan of interest and the elements specified above
 PortfolioOptimization(ETF_list, ['2022-06-01', '2022-06-30'], rebalance=True, 
-rebalance_capital=OptimizedPortfolio.capital,
+capital=OptimizedPortfolio.capital,
 rebalance_weights=OptimizedPortfolio.FinalWeights)
 ```
 ## Rebalanced weights
